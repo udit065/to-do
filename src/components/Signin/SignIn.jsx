@@ -23,10 +23,10 @@ const Signin = () => {
                 password: password
             });
 
-            console.log(response.data);
+            // console.log(response.data);
 
             if (response.status === 201) {
-                console.log("success");
+                // console.log("success");
                 navigate("/login");
             }
 

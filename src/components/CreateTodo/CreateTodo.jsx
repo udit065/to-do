@@ -19,23 +19,18 @@ const CreateTodo = () => {
     };
 
     const headers = {
-        'Content-Type': 'application/json',
         Authorization: `Bearer ${tokenId}`,
-        Accept: "*/*",
-        // 'Accept-Encoding': "gzip, deflate, br",
-        "Cache-Control": "no-cache",
-        // Connection: "keep-alive"
     }
 
     const createTodoApi = async () => {
-        console.log(taskName, taskDesc, status);
+        // console.log(taskName, taskDesc, status);
         try {
             const response = await axios.post("https://todos-api-aeaf.onrender.com/api/v1/todo/create",
                 todotData,
                 {
                     headers: headers
                 });
-            console.log(response.data);
+            // console.log(response.data);
             if (response.status == 200) {
                 navigate('/todohome')
             }
@@ -54,7 +49,7 @@ const CreateTodo = () => {
             </div>
             <div className='flex'>
                 <p>Status :</p>
-                <input value="completed" type="checkbox" checked={status} onChange={() => setStatus(!status)} />
+                <input type="checkbox" checked={status} onChange={() => setStatus(!status)} />
             </div>
             <div className='muiBtn'>
                 <Button variant="contained" onClick={createTodoApi}>Add Todo</Button>

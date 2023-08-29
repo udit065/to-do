@@ -11,15 +11,15 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleLogin = async () => {
-        console.log(email, password);
+        // console.log(email, password);
         await axios.post("https://todos-api-aeaf.onrender.com/api/v1/auth/login", {
             email: email,
             password: password,
         }).then(result => {
-            console.log(result);
+            // console.log(result);
             if (result.status == 200) {
                 localStorage.setItem("tokenId", result.data.data.token);
-                console.log("success login");
+                // console.log("success login");
                 navigate("/todohome")
             }
         }).catch(error => {
